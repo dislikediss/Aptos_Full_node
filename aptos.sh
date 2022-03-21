@@ -34,9 +34,12 @@ sed -i 's/ //g' key.txt
 sed -i 's/://g' key.txt
 
 #修改public_fulll_node.yaml内容
-privateKey="cat key.text | head -n 1"
-peerID="cat key.text | tail -n +2 | head -n 1"
-
+cat key.text | head -n 1 > privateKey.txt
+cat key.text | tail -n +2 | head -n 1 > peerID.txt
+privateKey="privateKey.txt"
+peerID="peerID.txt"
+privateKey=`cat $privateKey`
+peerID="cat $peerID"
 cat>public_full_node.yaml<<EOF
 base:
     # This is the location Aptos will store its database. It is backed by a dedicated docker volume
