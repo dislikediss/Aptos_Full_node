@@ -18,11 +18,6 @@ sudo chmod +x /usr/local/bin/docker-compose
 
 # 安装 docker-compose
 
-echo "检查Docker和docker-compose是否安装"
-docker -v
-docker-compose -v
-
-
 echo "下载 Aptos 节点运行所需文件"
 mkdir -p ~/aptos-node && cd ~/aptos-node
 wget https://raw.githubusercontent.com/aptos-labs/aptos-core/main/docker/compose/public_full_node/docker-compose.yaml
