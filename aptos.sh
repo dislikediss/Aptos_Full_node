@@ -44,9 +44,6 @@ sed -i 's/://g' key.txt
 privateKey=cat key.txt | head -n 1
 peerID=cat key.txt | tail -n +2 | head -n 1
 
-privateKey="$privateKey"
-peerID="$peerID"
-
 cat>public_full_node.yaml<<EOF
 base:
     # This is the location Aptos will store its database. It is backed by a dedicated docker volume
@@ -67,8 +64,8 @@ full_node_networks:
       discovery_method: "onchain"
       identity:
         type: "from_config"
-        key: ${privateKey}
-        peer_id: ${peerID}
+        key: '${privateKey}'
+        peer_id: '${peerID}'
       # The network must have a listen address to specify protocols. This runs it locally to
       # prevent remote, incoming connections.
       listen_address: "/ip4/127.0.0.1/tcp/6180"
