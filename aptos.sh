@@ -24,6 +24,8 @@ docker-compose -v
 
 
 echo "下载 Aptos 节点运行所需文件"
+mkdir aptos-node
+cd aptos-node
 wget https://raw.githubusercontent.com/aptos-labs/aptos-core/main/docker/compose/public_full_node/docker-compose.yaml
 wget https://devnet.aptoslabs.com/genesis.blob
 wget https://devnet.aptoslabs.com/waypoint.txt
