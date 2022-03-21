@@ -38,7 +38,7 @@ cat key.text | head -n 1 > privateKey.txt
 cat key.text | tail -n +2 | head -n 1 > peerID.txt
 privateKey="privateKey.txt"
 peerID="peerID.txt"
-privateKey=`cat $privateKey`
+privateKey="cat $privateKey"
 peerID="cat $peerID"
 cat>public_full_node.yaml<<EOF
 base:
@@ -60,8 +60,8 @@ full_node_networks:
       discovery_method: "onchain"
       identity:
         type: "from_config"
-        key: ${privateKey}
-        peer_id: ${peerID}
+        key: "${privateKey}"
+        peer_id: "${peerID}"
       # The network must have a listen address to specify protocols. This runs it locally to
       # prevent remote, incoming connections.
       listen_address: "/ip4/127.0.0.1/tcp/6180"
