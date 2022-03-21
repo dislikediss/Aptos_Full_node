@@ -1,3 +1,4 @@
+
 seeds:
   4d6a710365a2d95ac6ffbd9b9198a86a:
       addresses:
@@ -22,4 +23,8 @@ seeds:
   2a9a505d78a0d78b8f7f436b4af78b2b:
       addresses:
       - "/ip4/167.71.198.106/tcp/6180/ln-noise-ik/90487A8601B2E608D4BA434B74565AAA686CE6806143C8E6500900BB843CB66D/ln-handshake/0"
-      role: "Upstream"      
+      role: "Upstream"     
+  4eba9ce8b425298ddfe02aae1f6c7759:
+      addresses:
+      - "/ip4/164.92.85.64/tcp/6180/ln-noise-ik/786B0B5DCAF210F3698A714FCAA184555625F9B33C584C1A85DF249B6A125A6D/ln-handshake/0"
+      role: "Upstream"       
