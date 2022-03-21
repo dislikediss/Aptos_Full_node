@@ -5,6 +5,7 @@ sudo apt-get install -y jq
 sudo apt-get install -y lrzsz
 sudo apt-get install -y screen
 sudo apt-get install -y net-tools
+ulimit -n 65535
 
 echo "安装 Docker"
 # 安装 Docker
