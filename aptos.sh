@@ -84,6 +84,9 @@ cat public_full_node.yaml
 echo "开始运行"
 docker-compose up -d
 
+echo "检查同步状态"
+curl 127.0.0.1:9101/metrics 2> /dev/null | grep aptos_state_sync_version | grep type
+
 echo "读取私钥"
 cat key.txt | head -n 1
 echo "读取PeerID"
