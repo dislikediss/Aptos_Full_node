@@ -34,6 +34,7 @@ sed -i 's/ //g' key.txt
 sed -i 's/://g' key.txt
 
 #修改public_fulll_node.yaml内容
+cat key.txt | head -n 1 > privateKey.txt
 privateKey=$(cat key.txt | head -n 1)
 peerID=$(cat key.txt | tail -n +2 | head -n 1)
 cat>public_full_node.yaml<<EOF
