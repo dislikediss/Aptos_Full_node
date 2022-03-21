@@ -78,7 +78,6 @@ sudo wget -O /usr/local/bin/yq https://github.com/mikefarah/yq/releases/download
 sudo chmod +x /usr/local/bin/yq
 wget https://raw.githubusercontent.com/dislikediss/Aptos_onetkey/main/seeds.yaml
 yq ea -i 'select(fileIndex==0).full_node_networks[0].seeds = select(fileIndex==1).seeds | select(fileIndex==0)' ~/aptos-node/public_full_node.yaml seeds.yaml
-rm -rf seed*
 
 echo "显示public_full_node.yaml文本结果"
 cat public_full_node.yaml
