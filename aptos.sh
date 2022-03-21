@@ -40,9 +40,9 @@ sed -i 's/ //g' key.txt
 sed -i 's/://g' key.txt
 
 #修改public_fulll_node.yaml内容
-
-privateKey=cat key.txt | head -n 1
-peerID=cat key.txt | tail -n +2 | head -n 1
+key_text="key.txt"
+privateKey="cat ${key_text} | head -n 1"
+peerID="cat cat ${key_text} | tail -n +2 | head -n 1"
 
 cat>public_full_node.yaml<<EOF
 base:
@@ -64,8 +64,8 @@ full_node_networks:
       discovery_method: "onchain"
       identity:
         type: "from_config"
-        key: '${privateKey}'
-        peer_id: '${peerID}'
+        key: ${privateKey}
+        peer_id: ${peerID}
       # The network must have a listen address to specify protocols. This runs it locally to
       # prevent remote, incoming connections.
       listen_address: "/ip4/127.0.0.1/tcp/6180"
