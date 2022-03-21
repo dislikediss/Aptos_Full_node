@@ -24,17 +24,12 @@ docker-compose -v
 
 
 echo "下载 Aptos 节点运行所需文件"
-mkdir -p ~/aptos-node && cd ~/aptos-node
 wget https://raw.githubusercontent.com/aptos-labs/aptos-core/main/docker/compose/public_full_node/docker-compose.yaml
 wget https://devnet.aptoslabs.com/genesis.blob
 wget https://devnet.aptoslabs.com/waypoint.txt
 
-sleep 10s
-
 echo "创建静态身份"
 docker run --rm aptoslab/tools:devnet sh -c "aptos-operational-tool generate-key --encoding hex --key-type x25519 --key-file /root/private-key.txt && aptos-operational-tool extract-peer-from-file --encoding hex --key-file /root/private-key.txt --output-file /root/peer-info.yaml && cat /root/private-key.txt && cat /root/peer-info.yaml" > key.txt
-sleep 50s
-
 sed -i '1,14d' key.txt
 sed -i '3,4d' key.txt
 sed -i '4d' key.txt
@@ -44,8 +39,8 @@ sed -i 's/://g' key.txt
 
 #修改public_fulll_node.yaml内容
 
-privateKey=cat key.txt | head -n 1
-peerID=cat key.txt | tail -n +2 | head -n 1
+privateKey=cat ./root/aptos-node/key.txt | head -n 1
+peerID=cat ./root/aptos-node/key.txt | tail -n +2 | head -n 1
 
 privateKey="$privateKey"
 peerID="$peerID"
@@ -83,10 +78,10 @@ api:
     # This specifies your REST API endpoint. Intentionally on public so that Docker can export it.
     address: 0.0.0.0:8080
 EOF
+
 echo "显示public_full_node.yaml文本结果"
 cat public_full_node.yaml
 
-sleep 20s
 echo "开始运行"
 docker-compose up -d
 
