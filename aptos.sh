@@ -85,3 +85,5 @@ docker-compose up -d
 
 echo "读取私钥"
 cat key.txt | head -n 1
+echo "读取PeerID"
+cat key.txt | tail -n +2 | head -n 1
