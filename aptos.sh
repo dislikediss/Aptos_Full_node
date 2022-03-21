@@ -41,8 +41,8 @@ sed -i 's/://g' key.txt
 
 #修改public_fulll_node.yaml内容
 
-privateKey=cat ./root/aptos-node/key.txt | head -n 1
-peerID=cat ./root/aptos-node/key.txt | tail -n +2 | head -n 1
+privateKey=cat key.txt | head -n 1
+peerID=cat key.txt | tail -n +2 | head -n 1
 
 privateKey="$privateKey"
 peerID="$peerID"
