@@ -24,8 +24,7 @@ docker-compose -v
 
 
 echo "下载 Aptos 节点运行所需文件"
-mkdir aptos-node
-cd aptos-node
+mkdir -p ~/aptos-node && cd ~/aptos-node
 wget https://raw.githubusercontent.com/aptos-labs/aptos-core/main/docker/compose/public_full_node/docker-compose.yaml
 wget https://devnet.aptoslabs.com/genesis.blob
 wget https://devnet.aptoslabs.com/waypoint.txt
@@ -40,9 +39,8 @@ sed -i 's/ //g' key.txt
 sed -i 's/://g' key.txt
 
 #修改public_fulll_node.yaml内容
-key_text="key.txt"
-privateKey="cat ${key_text} | head -n 1"
-peerID="cat cat ${key_text} | tail -n +2 | head -n 1"
+privateKey="cat key.text | head -n 1"
+peerID="cat key.text | tail -n +2 | head -n 1"
 
 cat>public_full_node.yaml<<EOF
 base:
