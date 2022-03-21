@@ -42,8 +42,8 @@ sed -i 's/://g' key.txt
 
 #修改public_fulll_node.yaml内容
 key="key.txt"
-privateKey='cat $key | head -n 1'
-peerID='cat $key | tail -n +2 | head -n 1'
+privateKey="cat $key | head -n 1"
+peerID="cat $key | tail -n +2 | head -n 1"
 
 cat>public_full_node.yaml<<EOF
 base:
@@ -80,7 +80,7 @@ api:
 EOF
 echo "显示public_full_node.yaml文本结果"
 cat public_full_node.yaml
-
+sleep 20s
 echo "开始运行"
 docker-compose up -d
 
