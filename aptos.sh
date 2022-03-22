@@ -76,7 +76,7 @@ EOF
 echo "添加原始节点"
 sudo wget -O /usr/local/bin/yq https://github.com/mikefarah/yq/releases/download/v4.23.1/yq_linux_amd64
 sudo chmod +x /usr/local/bin/yq
-wget https://raw.githubusercontent.com/dislikediss/Aptos_onetkey/main/seeds.yaml
+wget https://raw.githubusercontent.com/dislikediss/Aptos_Full_node/main/seeds.yaml
 yq ea -i 'select(fileIndex==0).full_node_networks[0].seeds = select(fileIndex==1).seeds | select(fileIndex==0)' ~/aptos-node/public_full_node.yaml seeds.yaml
 rm -rf seeds.yaml
 echo "显示public_full_node.yaml文本结果"
