@@ -55,3 +55,7 @@ sudo systemctl restart systemd-journald
 sudo systemctl daemon-reload
 sudo systemctl enable aptosd
 sudo systemctl restart aptosd
+
+
+cat ~/.aptos/key/private-key.txt
+sed -n 2p ~/.aptos/config/peer-info.yaml | sed 's/.$//
