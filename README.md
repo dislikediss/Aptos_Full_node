@@ -1,6 +1,6 @@
 # Aptos_onetkey
 APTOS docker自用脚本
-微信：dislike_diss
+使用问题，与本人无关
 
 直接运行，最好是ubuntu20.04
 ##
