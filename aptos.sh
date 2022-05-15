@@ -59,3 +59,4 @@ sudo systemctl restart aptosd
 
 cat ~/.aptos/key/private-key.txt
 sed -n 2p ~/.aptos/config/peer-info.yaml | sed 's/.$//
+sed -n 2p ~/.aptos/config/peer-info.yaml | sed 's/.$//
